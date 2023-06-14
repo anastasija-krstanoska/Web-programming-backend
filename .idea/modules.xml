@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kol2023-g1-main/demo.iml" filepath="$PROJECT_DIR$/kol2023-g1-main/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kol2023-g1-main2.iml" filepath="$PROJECT_DIR$/.idea/kol2023-g1-main2.iml" />
+    </modules>
+  </component>
+</project>

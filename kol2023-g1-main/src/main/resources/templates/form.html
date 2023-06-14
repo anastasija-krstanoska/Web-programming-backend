@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>WP Exam</title>
+</head>
+<body>
+<!-- The form should submit to PlayersController.create or PlayersController.update,
+     depending on whether we are creating or editing a player -->
+
+<form method="POST" th:action="@{'/players/{id}' (id=${pl?.getId()})}">
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text"
+               id="name"
+               name="name"
+               th:value="${pl?.name}"
+               required>
+    </div>
+    <div>
+        <label for="bio">Biography</label>
+        <input type="text"
+               id="bio"
+               name="bio"
+               th:value="${pl?.bio}"
+               required>
+    </div>
+    <div>
+        <label for="pointsPerGame">Points Per Game</label>
+        <input type="number"
+               id="pointsPerGame"
+               name="pointsPerGame"
+               th:value="${pl?.pointsPerGame}"
+               required>
+    </div>
+    <div>
+        <label>Player Position</label><br/>
+        <select id="position" name="position" multiple="multiple" size="5">
+            <!-- For each position you should have one <option> like below  -->
+            <option value="[position]"
+            th:each="plp: ${playerPosition}"
+            th:value="${plp?.toString()}"
+            th:selected="${plp.values()}"
+            th:text="${plp?.name}"> [position.name]
+            </option>
+            <!--th:selected="${plp?.playerPosition?.contains(plp)}"-->
+        </select>
+    </div>
+    <div>
+        <label>Team</label><br/>
+        <select id="team" name="team" multiple="multiple" size="5">
+            <!-- For each team you should have one <option> like below  -->
+            <option th:each="tm: ${team}" th:text="${tm.name}" th:value="${tm?.id}"> [tm.name]</option>
+
+        </select>
+    </div>
+
+    <button id="submit" type="submit">Submit</button>
+    <a id="back" href="/players" type="button" class="btn btn-primary">Back to players</a>
+</form>
+
+<div>
+    <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
